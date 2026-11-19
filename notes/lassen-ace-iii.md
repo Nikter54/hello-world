@@ -20,3 +20,18 @@
 ## Невідомо (потрібен посібник — Reference Manual зі Starter Kit)
 - Перелік і коди пакетів TSIP для налаштувань (маски висоти/PDOP, динаміка, порти тощо).
 - Розпіновка 8-пінового роз'єму.
+
+## Програма конфігурування: Trimble GPS Studio
+Джерело: Trimble GPS Studio Application User Guide, Version 1.01.20, Revision B, August 2011 (файл від Миколи).
+У Миколи встановлено версію **1.84.0** — опису саме цієї версії немає; відмінності від 1.01.20 невідомі.
+
+- Підключення: New Connection → COM-порт → «Auto-detect settings» (сама підбирає протокол, швидкість, парність, біти).
+- Налаштування: Receiver → Configure. Вкладки (набір залежить від приладу):
+  - Port Configuration — порт, швидкість, парність, біти даних/стоп, один вхідний і один вихідний протокол;
+  - Outputs — параметри виводу;
+  - PPS Configuration — Always ON / Fix-based / Always OFF, зсув і ширина імпульсу (нс), полярність;
+  - NMEA — речення (GGA, GSV, RMC, GLL, GSA, VTG, ZDA, TF1, BA1, GST, CHN1 — не всі є на всіх приладах), інтервал 1–255 с.
+- На кожній вкладці — Set; наприкінці один раз Save Configuration (запис у енергонезалежну пам'ять).
+  У модулів Condor ліміт 8 збережень, далі — перепрошивка (для ACE III про такий ліміт у посібнику нічого не сказано).
+- Інші інструменти: Data Logger, Data Converter, Generic Packets (надсилання сирих пакетів, напр. TSIP), Flash Loader.
+- ACE III і Lassen у посібнику **не згадані** (приклади — Condor, Copernicus II). Чи підтримує GPS Studio ACE III — невідомо; перевірити на практиці (Auto-detect + Configure).
