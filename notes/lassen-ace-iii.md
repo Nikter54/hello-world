@@ -55,3 +55,4 @@
 - GPS: Auto 2D/3D, Land, DGPS Auto On, WGS-84, Elevation mask ~5°, Signal mask 3, PDOP mask 12, switch 5.
 - Timing Receiver Settings — усе вимкнено (для ACE III так і треба: це пакети 0x8E для таймінгових приймачів).
 - Вибір речення ZDA на цих вкладках не видно — ймовірно, на «Miscellaneous Settings» (скріншота ще немає).
+- Miscellaneous Settings (було): NMEA Output увімкнено, інтервал 5 с, вибрано лише **GGA**, ZDA — ні. Треба: ZDA ✔, GGA ✘ (якщо потрібен лише ZDA), інтервал 1 с → Configure Receiver(s).
