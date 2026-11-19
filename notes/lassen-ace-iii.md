@@ -48,3 +48,10 @@
 3. Вкладка NMEA: лише ZDA, інтервал 1 с → Set.
 4. Save Configuration. Перевірити, підключившись до порту B.
 Запасний шлях — TSIP через Generic Packets: у загальних таблицях TSIP порт задає пакет 0xBC, NMEA — 0x7A; точний формат байтів для ACE III не підтверджено (потрібен Reference Manual).
+
+## Конфігурація в GPS Studio 1.84.0 (скріншоти Миколи, Configurator, «Other Embedded»)
+- Port A: 9600, None, 8, 1; вхід/вихід TSIP. (За даташитом заводське TSIP — 8-**Odd**-1; після запису підключатися з 9600 8-N-1.)
+- Port B: 4800, None, 8, 1; вихід NMEA, вхід не вибрано.
+- GPS: Auto 2D/3D, Land, DGPS Auto On, WGS-84, Elevation mask ~5°, Signal mask 3, PDOP mask 12, switch 5.
+- Timing Receiver Settings — усе вимкнено (для ACE III так і треба: це пакети 0x8E для таймінгових приймачів).
+- Вибір речення ZDA на цих вкладках не видно — ймовірно, на «Miscellaneous Settings» (скріншота ще немає).
