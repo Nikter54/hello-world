@@ -35,3 +35,16 @@
   У модулів Condor ліміт 8 збережень, далі — перепрошивка (для ACE III про такий ліміт у посібнику нічого не сказано).
 - Інші інструменти: Data Logger, Data Converter, Generic Packets (надсилання сирих пакетів, напр. TSIP), Flash Loader.
 - ACE III і Lassen у посібнику **не згадані** (приклади — Condor, Copernicus II). Чи підтримує GPS Studio ACE III — невідомо; перевірити на практиці (Auto-detect + Configure).
+
+## Плата Миколи (за фото, 2026-11-19)
+- Наклейка «39818-00-C REV.C5», плата «PII-III 39818-C», ПЗП «43018-02 V8.08» (ймовірно, версія прошивки 8.08), дата 0228.
+- Номер 39818-00-C в документації ntpsec вказано як ACE III: https://docs.ntpsec.org/latest/driver_trimble.html — отже, це **Trimble ACE III**.
+- На платі є перехідник «GPS Cable Adapter 1.0, PacComm, Tampa FL» — прилад, найімовірніше, вбудований у виріб PacComm.
+
+## Завдання: Порт B → вивід NMEA ZDA
+План у GPS Studio (не перевірено на ACE III):
+1. Підключитися до порту, що працює в TSIP (за замовчуванням TSIP 9600 8-O-1), Auto-detect.
+2. Receiver → Configure → Port Configuration: Receiver Port = B, Output protocol = NMEA, швидкість (типово 4800 8-N-1 — або яка потрібна приймальній стороні) → Set.
+3. Вкладка NMEA: лише ZDA, інтервал 1 с → Set.
+4. Save Configuration. Перевірити, підключившись до порту B.
+Запасний шлях — TSIP через Generic Packets: у загальних таблицях TSIP порт задає пакет 0xBC, NMEA — 0x7A; точний формат байтів для ACE III не підтверджено (потрібен Reference Manual).
